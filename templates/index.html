@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+
+{% block body%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+{% with messages=get_flashed_messages()%}
+        {% if messages%}
+            {% for message in messages%}
+                <div class="flash add">{{message}}
+                <span>x</span>
+                </div>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    
+    <div class="profile-container">
+        <div class="background-image-container" style="background-image: url('../static/uploads/{{background}}');">
+         <div class="tools">
+             <span>
+                <i class="fa-solid fa-circle-info" title="help"></i>
+            </span>
+            <span data-toggle="modal" data-target="#sender">
+                <i class="fa-solid fa-bell" title="notification"></i>
+                <div class="cercle">{{notification}}</div>
+            </span> 
+           <span>
+            <i class="fa-solid fa-message" title="messages"></i>
+            <div class="cercle">0</div>
+        </span> 
+         </div>
+                <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="image" id="img">
+                    <label for="img">Change Photo</label>
+                    <button type="submit">
+                    <i class="fa-solid fa-camera"></i>
+                    </button>
+                </form>
+                <form action="{{url_for('search')}}" method="POST">
+                <div class="search">
+                    <input type="text" name="search" placeholder="Search ..." class="form-control m-2">
+                    <button type="submit" class="btn btn-dark">OK</button>
+                </div>
+            </form>
+        </div>
+        <div class="user-info">
+            <div class="user-img">
+                <img src="../static/uploads/{{profile}}" alt="profile">
+            </div>
+            <div class="edit-info">
+                <form action="{{url_for('upload_profile')}}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="image" id="profile">
+                <label for="profile">Change Profile</label>
+                <button type="submit">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+            </form>
+            </div>
+            <div class="user"><span>Name : </span>
+                {% if name%}
+                {{name}}
+                {%else%}
+                Uknown
+                {%endif%}
+            </div>
+            <div class="user"><span>Email : </span>
+                {% if email%}
+                {{email}}
+                {%else%}
+                Uknown
+                {%endif%}
+            </div>
+            <div class="user"><span>Profession : </span>
+                {% if profession%}
+                {{profession}}
+                {%else%}
+                Uknown
+                {%endif%}
+            </div>
+            <div class="user"><span>Phone : </span>
+                {% if phone%}
+                {{phone}}
+                {%else%}
+                Uknown
+                {%endif%}
+            </div>
+            <div class="user"><span>Adress : </span>
+                {% if adress%}
+                {{adress}}
+                {%else%}
+                Uknown
+                {%endif%}
+            </div>
+            <button type="button" class="complete-profile" data-toggle="modal" data-target="#myModal">Complete Information</button>
+        
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Update Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{url_for('complete_info')}}" method="POST">
+        <div class="modal-body">
+          <input type="text" name="name" placeholder="Your Name" class="form-control mb-2">
+          <input type="number" name="phone" placeholder="Phone Number" class="form-control mb-2">
+          <input type="text" name="adress" placeholder="Your Adress" class="form-control mb-2">
+          <input type="text" name="profession" placeholder="Profession" class="form-control mb-2">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="options">
+    <div class="option1">
+        <span class="icon">
+            <i class="fa-solid fa-magnifying-glass-dollar"></i>
+        </span>
+        <div class="form">
+            <h3 class="title">Search for job</h3>
+            <div class="description">
+                by click on the button search bellow you will recive a form to
+                add your skills and your prefference and we will inform you if their any job
+            </div>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#job">Search</button>
+        </div>
+    </div>
+    <div class="option1">
+        <span class="icon">
+            <i class="fa-solid fa-user-tie"></i>
+        </span>
+        <div class="form">
+            <h3 class="title">Search for Employee</h3>
+            <div class="description">
+                by click on the button search bellow you will recive a form to
+                add choose a specifique profession you want  and the skills preferred
+            </div>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#employee">Search</button>
+        </div>
+    </div>
+    <div class="option1">
+        <span class="icon">
+            <i class="fa-solid fa-upload"></i>
+        </span>
+        <div class="form">
+            <h3 class="title">Upload CV </h3>
+            <div class="description">
+                if you upload your cv that make your chance double and make the others
+                more intersted
+            </div>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#upload_cv">Upload</button>
+        </div>
+    </div>
+    <div class="option1">
+        <span class="icon">
+            <i class="fa-solid fa-tower-broadcast"></i>
+        </span>
+        <div class="form">
+            <h3 class="title">Add social accounts</h3>
+            <div class="description">
+                by adding the social accounts the contact with the others be more easy
+                and that make your chance double
+            </div>
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#social">Add social</button>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- job modal -->
+<div class="modal fade" id="job" tabindex="-1" role="dialog" aria-labelledby="job">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="job">All Job Possible</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+        <div class="modal-body">
+            <input type="checkbox" name="chek1" id="chek1">
+            <label for="chek1">SNIM <span class="type">public</span></label>
+            <input type="checkbox" name="chek1" id="chek2">
+            <label for="chek2">CNAM <span class="type">public</span></label>
+            <input type="checkbox" name="chek1" id="chek3">
+            <label for="chek3">yaccoub <span class="type">private</span></label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+<!-- employee modal -->
+<div class="modal fade" id="employee" tabindex="-1" role="dialog" aria-labelledby="employee">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="employee">Require Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+        <div class="modal-body">
+            <input type="text" name="profession" placeholder="Profession Wanted" class="form-control mb-2" required>
+            <input type="number" name="salaire" placeholder="Salaire" class="form-control mb-2" required>
+            <input type="text" name="location" placeholder="Location" class="form-control mb-2" required>
+            <select name="size" class="select">
+                <option selected>Job Size</option>
+                <option value="big">Big</option>
+                <option value="medium">Medium</option>
+                <option value="small">Small</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- cv modal -->
+  <div class="modal fade" id="upload_cv" tabindex="-1" role="dialog" aria-labelledby="upload_cv">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="upload_cv">Upload CV</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+        <div class="modal-body">
+            <input type="file" name="cv" id="cv">
+            <label for="cv" class="btn btn-dark">Choose File</label>
+            <span class="msg">the file must be in pdf format</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- socila modal -->
+  <div class="modal fade" id="social" tabindex="-1" role="dialog" aria-labelledby="social">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="social">Add The Social Accounts</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+        <div class="modal-body">
+            <div class="group2">
+                <span><i class="fa-brands fa-square-whatsapp"></i></span>
+                <input type="text" name="whatsap" placeholder="Whatsapp" class="form-control inp mb-2">
+            </div>
+            <div class="group2">
+                <span><i class="fa-brands fa-facebook"></i></span>
+                <input type="text" name="whatsap" placeholder="Facebook" class="form-control inp mb-2">
+            </div>
+            <div class="group2">
+                <span><i class="fa-brands fa-twitter"></i></span>
+                <input type="text" name="whatsap" placeholder="Twiter" class="form-control inp mb-2">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+<!-- sender modal -->
+<div class="modal fade" id="sender" tabindex="-1" role="dialog" aria-labelledby="sender">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="sender">List of demande job</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{{url_for('chat')}}" method="POST">
+        <div class="modal-body" style="max-height: 300px; overflow-y: auto;">
+          {% if nbr_sender!=0 %}
+          <table class="table table-bordered table-striped">
+            <tr class="w-100">
+                <td>Name</td>
+                <td>Phone</td>
+                <td>Date</td>
+            </tr>
+            {% for user in sender%}
+              {%if user %}
+                <tr>
+                  <td><input type="radio" class="m-1" name="accept" value="{{user.id}}">{{user.sender_name}}</td>
+                  <td>{{user.sender_phone}}</td>
+                  <td>{{user.send_date}}</td>
+                </tr>
+                {%endif%}
+                {%endfor%}
+          </table>
+          {%else%}
+            <div class="w-100" style="color: red;">You d'ont have any demande job!</div>
+          {%endif%}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">accept job</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+{% endblock body%}

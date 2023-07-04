@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block body%}
+{% with messages=get_flashed_messages()%}
+{% if messages%}
+    {% for message in messages%}
+        <div class="flash">
+            {{message}}
+            <span>x</span>
+        </div>
+    {%endfor%}
+{%endif%}
+{%endwith%}
+<div class="big-container">
+<div class="logo"><span>Find</span><span>Job</span></div>
+<div class="container">
+    <form action="{{url_for('login')}}" method="POST">
+        <div class="logo-signup">
+        </div>
+        <div class="group">
+            <span><i class="fa-solid fa-envelope" style="color:rgb(220,220,7)"></i></span>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email" required autocomplete="off">
+            <span><i class="fa-solid fa-lock" style="color:rgb(220,220,7)"></i></span>
+            <input type="password" name="password" id="password" placeholder="Enter Your Password" minlength="8" required autocomplete="off">
+            <div class="eyes">
+                <span class="eye1"><i class="fa-solid fa-eye"></i></span>
+                <span class="eye2"><i class="fa-solid fa-eye-slash"></i></span>
+            </div>
+        </div>
+       
+        <input type="checkbox" name="remember" id="remember" >
+        <label for="remember">remember me</label>
+        <p class="login-account">dont have an account?<a href="{{url_for('signup')}}">sign up</a></p>
+        <div class="group">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</div>
+<div class="footer">
+    tous les droit sont reserves
+    <span> &copy Copyrite 2023</span>
+    , realiser par zidbih hmoud
+ 
+</div>
+</div>
+
+{%endblock body%}

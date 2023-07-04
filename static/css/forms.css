@@ -1,0 +1,235 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #333;
+}
+.logo{
+    align-self: flex-start;
+    justify-self: start;
+    padding: 10px;
+}
+.logo span:first-child{
+    color:white;
+    font-size: 30px;
+}
+.logo span:last-child{
+    color:rgb(220, 220, 7);
+    font-size: 30px;
+}
+.big-container{
+    width: 100%;
+    height:100vh;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.big-container .container{
+    width: 400px;
+    height: 75vh;
+}
+.big-container .container form{
+    width: 100%;
+   
+    padding: 10px;
+    border: 1px solid white;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.big-container .container form .group:not(.group:last-of-type){
+    width: 100%;
+    height: calc(100% / 5);
+    position: relative;
+    margin-top: 25%;
+
+}
+.group:last-of-type{
+    margin-top: 15px;
+    width: 100%;
+}
+.big-container .container form .group input:not(input[type='submit']){
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    padding-left: 35px;
+    font-size: 20px;
+    color: white;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin-bottom: 20px;
+}
+
+.group span:not(.group span:last-child){
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    margin-left: 2%;
+    margin-top: 4%;
+}
+.eyes{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 2px;
+    top: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eye1,.eye2{
+    color: rgb(220, 220, 7);
+    cursor: pointer;
+}
+.eye1{
+    visibility: hidden;
+}
+
+
+::-webkit-input-placeholder{
+    color: whitesmoke;
+    opacity: 0.8;
+}
+.logo-signup{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+   border: 1px solid white;
+    position: absolute;
+    top: -75px;
+    background-image: url('../img/signup.avif');
+    background-size: cover;
+}
+
+input[type='submit']{
+    width: 70%;
+    height: 40px;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 7px;
+    margin-left: 15%;
+    font-size: 20px;
+    border-radius: 10px;
+    letter-spacing: 0.1em;
+    transition: 0.8s;
+}
+input[type='submit']:hover{
+    border: 1px solid rgb(220, 220, 7);
+    color: rgb(220, 220, 7);
+ 
+}
+
+.or{
+    width: 100%;
+    height: 1px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: white;
+    position: relative;
+}
+.or span{
+    color: white;
+    width: 50px;
+    position: absolute;
+    left: 46%;
+    background-color: #333;
+}
+.login-account{
+    color: white;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+}
+.login-account a{
+    color: rgb(220, 220, 7);
+}
+.footer{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    position: absolute;
+    top: 90%;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+.footer span{
+    color: rgb(220, 220, 7);
+}
+.flash{
+    width: 100%;
+    height: 60px;
+    padding: 15px;
+    padding-left: 30px;
+    color: white;
+    background-color: orange;
+    font-size: 25px;
+    text-align: center;
+}
+input[type="checkbox"]:not(.modal-body input[type='checkbox']){
+    appearance: none;
+    height: 18px;
+    width: 18px;
+    border: 2px solid white;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 7px;
+    transition: all 0.5s;
+}
+input[type="checkbox"]:not(.modal-body input[type='checkbox']):checked {
+    background-color: rgb(220, 220, 7);
+    border-color: rgb(220, 220, 7);
+    opacity: 0.8;
+}
+label[for='remember']{
+   font-size: 20px;
+   width: 200px;
+    color: white;
+    margin-bottom: 7px;
+    margin-top: 5px;
+    margin-left: 5px;
+    letter-spacing: 0.05em;
+}
+.flash span{
+    width: 40px;
+    height: 35px;
+    color: white;
+    font-size: 25px;
+    float: right;
+    cursor: pointer;
+}
+@media screen and (max-width:480px){
+    .big-container{
+       flex-direction: column;
+    }
+    .big-container .container{
+        width: 300px;
+    }
+    .logo-signup{
+        width: 130px;
+        height: 130px;
+    }
+    input[type='submit']{
+        font-size: 16px;
+        letter-spacing: 0.04;
+    }
+    .footer{
+        font-size: 16px;
+        text-align: center;
+    }
+    .flash{
+        height: 100px;
+    }
+}

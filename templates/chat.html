@@ -1,0 +1,31 @@
+{%extends 'base.html' %}
+{%block body%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <div class="profile-picture">
+        <div class="him">
+            <span>
+                <img src="../static/uploads/{{sender_image}}" alt="icon">
+            </span>
+            {{sender_name}}
+        </div>
+        <div class="me">
+            <span>
+                <img src="../static/uploads/{{my_image}}" alt="icon">
+            </span>
+            {{my_name}}
+        </div>
+    </div>
+   <div class="chat-container">
+    <div class="date">2023-07-02 10:15:20</div>
+  
+    <div class="text">
+        <input type="hidden" name="reciver_id" id="reciver_id" value="{{sender_id}}">
+        <input type="text" name="msg"  class="msg" placeholder="enter your mesage...">
+       <span id="send">   
+            <i class="fa-solid fa-paper-plane"></i>
+        </span>
+    </div>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="{{url_for('static',filename='js/chat.js')}}"></script>
+{%endblock body%}

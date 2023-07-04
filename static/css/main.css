@@ -1,0 +1,584 @@
+body{
+    background-color: white;
+}
+.profile-container{
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.background-image-container{
+    width: 100%;
+    height: 250px;
+    border: 1px solid #333;
+    border-bottom: none;
+    background-size: 100% 100%;
+    position: relative;
+}
+.background-image-container button:not(.search button){
+    width: 70px;
+    height: 70px;
+    background-color:#333;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    top: 33%;
+    left: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+input[type='file']{
+    display: none;
+}
+label[for='img']{
+    color: white;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 22px;
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    cursor: pointer;
+}
+label[for='img']::before{
+content: "";
+border-width: 20px;
+border-style: solid;
+border-color: #333 transparent transparent transparent;
+position: absolute;
+bottom: -30px;
+}
+.background-image-container button i{
+    color: white;
+    font-size: 30px;
+}
+.user-info{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    position: relative;
+}
+.user-info .user-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color:#222;
+    position: relative;
+    top: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -10%;
+}
+.user-img img{
+width: 100%;
+height: 100%;
+border-radius: 50%;
+}
+.edit-info button{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background-color: #333;
+    position: absolute;
+    top: 28%;
+    left: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+label[for='profile']{
+    color: white;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 22px;
+    position: absolute;
+    top: 12%;
+    left: 80%;
+    cursor: pointer;
+}
+label[for='profile']::before{
+    content: "";
+    border-width: 20px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    position: absolute;
+    bottom: -30px;
+    }
+.edit-info i{
+    font-size: 25px;
+    color: white;
+}
+.user{
+    font-size: 22px;
+    color: black;
+    margin-bottom: 5px;
+}
+.user span{
+    color: black;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.complete-profile{
+    width: 220px;
+    height: 45px;
+    padding: 7px;
+    border-radius: 10px;
+    color: white;
+    background-color: #333;
+    border: none;
+    cursor: pointer;
+    font-size: 21px;
+    position: absolute;
+    top: 80%;
+    left: 70%;
+    transition: 0.7s;
+}
+.add{
+    background-color: #333;
+}
+.tools{
+    width: 30%;
+    padding: 10px;
+    margin-left: 10%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tools span{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: relative;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cercle{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+   bottom: -5px;
+   right: -12px;
+   color: orangered;
+   text-align: center;
+   font-size: 18px;
+   font-weight: bold;
+}
+.tools i{
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+}
+.search{
+    width: 45%;
+    height: 60px;
+    padding: 10px;
+    position: absolute;
+    left:50% ;
+    top: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.options{
+    width:100%;
+    border: 1px solid #333;
+    border-top: none;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2%;
+}
+.options .option1{
+    width: 48%;
+    padding: 5px;
+   box-shadow: 0 2px 10px rgba(203, 196, 196, 0.986);
+}
+.options .option1 .title{
+    color: black;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(186, 180, 180);
+    padding: 5px;
+}
+.options .option1 .description{
+    text-align: left;
+    color: black;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+.options .form{
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+    margin-top: -6%;
+    border-left: 1px solid rgb(186, 180, 180);
+    padding-left: 10px;
+    margin-bottom:5px ;
+
+}
+.options .icon{
+    font-size: 25px;
+    color: #333;
+}
+input[type='checkbox']+label{
+   width: 95%;
+}
+.type{
+    color: orange;
+}
+.select{
+    width: 100%;
+    height: 40px;
+}
+.msg{
+    color: brown;
+}
+
+.group2 span{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.group2 span i{
+    color: #333;
+    font-size: 22px;
+}
+.inp{
+    padding-left: 35px;
+}
+.chat-container{
+    width: 60%;
+    margin: 10px auto;
+    padding: 10px;
+    padding-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(182, 177, 177, 0.986);
+    background-size: 100% 100%;
+}
+.chat-container .date{
+    text-align: center;
+    font-size: 20px;
+}
+.left-part,.right-part{
+    width: 48%;
+    display: inline-block;
+}
+
+.msg-left span,
+.msg-right span{
+    text-align: center;
+    padding: 10px;
+    border-radius:7px;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 2px 10px rgb(186, 180, 180);
+}
+.msg-left,.msg-right{
+    width: 100%;
+    padding: 5px;
+}
+.msg-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+}
+.msg-right{
+    padding-right:5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 7px;
+}
+.text{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text .msg{
+    width: 50%;
+    height: 40px;
+    color: black;
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 35px;
+    border: 1px solid rgb(186, 180, 180);
+    outline: none;
+    border-radius: 7px;
+}
+::placeholder{
+    color: rgba(186, 180, 180, 0.906);
+}
+.text span{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: -30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.profile-picture{
+    width: 60%;
+    padding: 10px;
+    box-shadow:0 2px 10px rgba(221, 215, 215, 0.986);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.him,.me{
+    padding: 10px;
+    width: 50%;
+    font-size: 22px;
+
+}
+.him span,
+.me span{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: 100% 100%;
+}
+.him img,
+.me img{
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and  (max-width:1200px) {
+    .background-image-container button:not(.search button),
+    label[for='img'],
+    .edit-info button,
+    label[for='profile']{
+        left: 70%;
+    }
+ 
+   .tools span{
+    width: 40px;
+    height: 40px;
+   }
+   .tools i{
+    font-size: 18px;
+   }
+   .cercle{
+    width: 20px;
+    height: 20px;
+    font-size:16px ;
+   }
+   .search{
+    width: 60%;
+    left: 37%;
+   }
+
+   .complete-profile{
+    left: 58%;
+    top: 85%;
+   }
+}
+@media screen and  (max-width:920px) {
+    .profile-container{
+        width: 80%;
+    }
+    .background-image-container button:not(.search button),
+    label[for='img']{
+        left: 5%;
+    }
+    .background-image-container button:not(.search button){
+        width: 50px;
+        height: 50px;
+    }
+    label[for='img']{
+        font-size: 20px;
+    }
+    .background-image-container button i{
+        font-size: 20px;
+    }
+    .tools{
+        margin-left: 65%;
+    }
+   .tools span{
+    width: 40px;
+    height: 40px;
+   }
+   .tools i{
+    font-size: 16px;
+   }
+   .cercle{
+    width: 18px;
+    height: 18px;
+    font-size:15px ;
+   }
+   .search{
+    width: 60%;
+    top: 35%;
+    left: 37%;
+   }
+   .user-img{
+    left:calc(50% - 100px);
+    margin-bottom: 0;
+   }
+   .edit-info button,
+   label[for='profile']{
+    left: 1%;
+   }
+   .edit-info button{
+    top: 12%;
+    width: 40px;
+    height: 40px;
+   }
+   .edit-info i{
+    font-size: 18px;
+   }
+   label[for='profile']{
+    top: 1%;
+    font-size: 15px;
+   }
+   .user{
+    margin-left: 25%;
+   }
+  .user-info{
+    padding-bottom: 13%;
+  }
+   .complete-profile{
+    left: 25%;
+   }
+   .options{
+    flex-direction: column;
+   }
+   .options .option1{
+    width: 80%;
+   }
+}
+@media screen and  (max-width:680px) {
+    .profile-container{
+        width: 95%;
+    }
+    .background-image-container button:not(.search button),
+    label[for='img']{
+        left: 3%;
+    }
+    .background-image-container button:not(.search button){
+        width: 40px;
+        height: 40px;
+    }
+    label[for='img']{
+        font-size: 18px;
+    }
+    .background-image-container button i{
+        font-size: 18px;
+    }
+    .tools{
+        margin-left: 45%;
+        width: 50%;
+    }
+   .tools span{
+    width:38px;
+    height:38px;
+   }
+   .tools i{
+    font-size: 15px;
+   }
+   .cercle{
+    width: 17px;
+    height: 17px;
+    font-size:13px ;
+   }
+   .search{
+    width: 70%;
+    top: 35%;
+    left: 30%;
+   }
+   .user-info .user-img{
+    left:calc(50% - 75px);
+    margin-bottom: 0;
+    width: 150px;
+    height: 150px;
+    margin-bottom: -15%;
+   }
+   
+   .edit-info button,
+   label[for='profile']{
+    left: 1%;
+   }
+   .edit-info button{
+    top: 14%;
+    width: 40px;
+    height: 40px;
+   }
+   .edit-info i{
+    font-size: 18px;
+   }
+   label[for='profile']{
+    top: 1%;
+    font-size: 12px;
+   }
+   .user{
+    margin-left: 5%;
+    font-size: 1.2em;
+   }
+  .user-info{
+    padding-bottom: 15%;
+  }
+   .complete-profile{
+    left: 5%;
+    font-size: 18px;
+   }
+   .options{
+    flex-direction: column;
+   }
+   .options .option1{
+    width: 90%;
+   }
+}
+@media screen and (max-width:350px){
+    .background-image-container button:not(.search button),
+    label[for='img']{
+        left: 1%;
+    }
+    label[for='img']{
+        font-size: 13px;
+    }
+    .search{
+        width: 82%;
+        left: 13%;
+    }
+    .user-info{
+        padding-bottom: 20%;
+    }
+    .user{
+        font-size: 14px;
+    }
+    .edit-info button{
+        top: 28%;
+    }
+    label[for='profile']{
+        top: 15%;
+        font-size: 10px;
+    }
+
+    .complete-profile{
+        font-size: 16px;
+        left: 0;
+        width: 90%;
+    }
+}
